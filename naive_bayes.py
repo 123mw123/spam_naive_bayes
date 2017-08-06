@@ -24,7 +24,21 @@ features_train, features_test, labels_train, labels_test = cross_validation.trai
                                                                                              test_size=0.2,
                                                                                              random_state=42)
 #print features_train
+def pre_process(data):
 
+    stemmed_list = []
+    for text in data:
+        exclude = set(string.punctuation)
+        text = ''.join(ch for ch in text if ch not in exclude)
+        stemmer = SnowballStemmer("english")
+        stemmed = [stemmer.stem(w) for w in text.split()]
+        words = " ".join(stemmed)
+        stemmed_list = stemmed_list + [words]
+    return stemmed_list
+
+
+features_train = pre_process(features_train)
+features_test = pre_process(features_test)
 
 
 vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
