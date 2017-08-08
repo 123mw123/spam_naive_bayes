@@ -22,8 +22,7 @@ data.drop(["Unnamed: 2", "Unnamed: 3", "Unnamed: 4"], axis=1, inplace=True)
 "Splitting data"
 features_train, features_test, labels_train, labels_test = cross_validation.train_test_split(data["text"],
                                                                                              data["label"],
-                                                                                             test_size=0.2,
-                                                                                             random_state=42)
+                                                                                             test_size=0.2)
 #print features_train
 def pre_process(data):
 
