@@ -4,6 +4,7 @@ from sklearn import cross_validation
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_selection import SelectPercentile, f_classif
 from sklearn.naive_bayes import GaussianNB
+from nltk.stem import SnowballStemmer
 
 
 data = pd.read_csv("spam.csv",encoding='latin-1')
